@@ -45,3 +45,9 @@
 1. Open Test Explorer (Test > Test Explorer).
 2. Build the solution (Build > Build Solution).
 3. Select and run tests
+
+## Future Improvement
+Create test flow to combine all test in 1 file to be run with
+  ```bash
+   dotnet test
+  ```
