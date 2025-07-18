@@ -75,7 +75,7 @@ namespace MatKinhShadyTest.Test
         case TestStatus.Failed:
           ExtentReporting.LogFail($"Test failed: {message}");
           ExtentReporting.LogScreenShot("Screenshot is logged at", ScreenshotUtility.TakeScreenshotAsBase64());
-          //ScreenshotUtility.TakeScreenshotToFile(TestContext.CurrentContext.Test.MethodName);
+          ScreenshotUtility.TakeScreenshotToFile(TestContext.CurrentContext.Test.MethodName);
           break;
         case TestStatus.Skipped:
           ExtentReporting.LogInfo($"Test skipped: {message}");

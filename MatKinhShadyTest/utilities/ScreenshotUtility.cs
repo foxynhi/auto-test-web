@@ -14,19 +14,26 @@ namespace MatKinhShadyTest.Utilities
       return img;
     }
 
-    public static string TakeScreenshotToFile(string fileName)
+    public static string TakeScreenshotToFile(string methodName)
     {
       string timestamp = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss");
-      string destination = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "ReportResults", "Screenshots", $"{fileName}-{timestamp}.png");
 
-      Directory.CreateDirectory(Path.GetDirectoryName(destination));
+      string path = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "ReportResults", "Screenshots\\");
+      if (!Directory.Exists(path))
+      {
+        Directory.CreateDirectory(path);
+      }
+
+      string fileName = path + $"{methodName}-{timestamp}.png";
+      Console.WriteLine($"Screenshot file path: {fileName}");
+      Directory.CreateDirectory(Path.GetDirectoryName(fileName));
 
       var screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-      screenshot.SaveAsFile(destination);
+      screenshot.SaveAsFile(fileName);
 
-      ExtentReporting.LogInfo($"Screenshot is saved at: {Path.GetFullPath(destination)}");
+      ExtentReporting.LogInfo($"Screenshot is saved at: {Path.GetFullPath(fileName)}");
 
-      return destination;
+      return fileName;
     }
   }
 }
