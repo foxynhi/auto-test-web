@@ -1,0 +1,13 @@
+.vs/ 
+ReportResults/
+bin/
+obj/
+packages/
+*.user
+*.dll
+*.so
+*.dylib
+*.log
+*.suo
+*.userosscache
+*.sln.docstates
