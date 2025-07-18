@@ -16,11 +16,13 @@ namespace MatKinhShadyTest.Utilities.Report
     public static void InitReport()
     {
       string path = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "..", "..", ".." + "\\ReportResults\\"));
+      if (!Directory.Exists(path))
+      {
+        Directory.CreateDirectory(path);
+      }
       string fileName = path + TestContext.CurrentContext.Test.MethodName + "_" + DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss") + ".html";
-      //Console.WriteLine("FileName: " + fileName);
       extent = new ExtentReports();
       htmlReporter = new ExtentHtmlReporter(fileName);
-      //htmlReporter.Configuration().Theme = Theme.Standard;
       extent.AttachReporter(htmlReporter);
     }
     public static void CreateTest(string testName)
