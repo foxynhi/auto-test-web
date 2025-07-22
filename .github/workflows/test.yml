@@ -20,10 +20,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore web-auto-test.sln
+        run: dotnet restore MatKinhShadyTest.sln
 
       - name: Build the solution
-        run: dotnet build web-auto-test.sln --configuration Release --no-restore
+        run: dotnet build MatKinhShadyTest.sln --configuration Release --no-restore
 
       - name: Run NUnit Tests
-        run: dotnet test web-auto-test.sln --no-build --verbosity normal --logger "console;verbosity=detailed"
+        run: dotnet test MatKinhShadyTest.sln --no-build --verbosity normal --logger "console;verbosity=detailed"
