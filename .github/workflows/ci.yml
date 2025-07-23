@@ -29,5 +29,4 @@ jobs:
         run: dotnet build MatKinhShadyTest.sln --configuration Release --no-restore
 
       - name: Run NUnit Tests
-        run: dotnet test --list-tests
-        # dotnet test MatKinhShadyTest.sln --no-build --verbosity normal --logger "console;verbosity=detailed"
+        run: dotnet test --filter Name~LogInTest
