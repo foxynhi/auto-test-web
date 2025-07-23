@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label 'windows'
-  }
+  agent any
 
   environment {
     NUGET_EXE = 'nuget.exe'
