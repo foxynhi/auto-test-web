@@ -17,7 +17,11 @@ pipeline {
         checkout scm
       }
     }
-
+     stage('Info') {
+      steps {
+        bat "echo %PATH%"
+      }
+    }
     stage('Restore NuGet packages') {
       steps {
         bat "nuget restore MatKinhShadyTest.sln"
