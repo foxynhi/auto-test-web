@@ -33,7 +33,7 @@ jobs:
         shell: pwsh
 
       - name: Show test methods in DLL
-        run: dotnet vstest MatKinhShadyTest\bin\Release\net6.0\MatKinhShadyTest.dll --ListTests
+        run: dotnet vstest MatKinhShadyTest\bin\Release\MatKinhShadyTest.dll --ListTests
 
       - name: Run NUnit Tests
         run: dotnet test MatKinhShadyTest.sln --list-tests
