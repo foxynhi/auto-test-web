@@ -32,5 +32,4 @@ jobs:
         run: dotnet vstest MatKinhShadyTest\bin\Release\MatKinhShadyTest.dll --ListTests
 
       - name: Run NUnit Tests
-        run:
-          dotnet test --filter Name~LogInTest
+        run: dotnet test MatKinhShadyTest.sln --no-restore
