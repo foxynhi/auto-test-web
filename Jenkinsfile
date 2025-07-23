@@ -3,10 +3,6 @@ pipeline {
     label 'windows'
   }
 
-  tools {
-    dotnet 'dotnet8'
-  }
-
   environment {
     NUGET_EXE = 'nuget.exe'
   }
