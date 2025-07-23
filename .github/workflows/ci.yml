@@ -1,0 +1,33 @@
+name: Run Web Auto Tests
+
+on:
+  push:
+    branches: [ "ci" ]
+  pull_request:
+    branches: [ "ci" ]
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install NuGet CLI
+        uses: NuGet/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore MatKinhShadyTest.sln
+
+      - name: Build the solution
+        run: dotnet build MatKinhShadyTest.sln --configuration Release --no-restore
+
+      - name: Run NUnit Tests
+        run: dotnet test --list-tests
+        # dotnet test MatKinhShadyTest.sln --no-build --verbosity normal --logger "console;verbosity=detailed"
