@@ -27,14 +27,10 @@ jobs:
 
       - name: Build the solution
         run: dotnet build MatKinhShadyTest.sln --configuration Release --no-restore
-      - name: List DLL contents
-        run: |
-          Get-ChildItem -Recurse .\MatKinhShadyTest\bin\
-        shell: pwsh
 
       - name: Show test methods in DLL
         run: dotnet vstest MatKinhShadyTest\bin\Release\MatKinhShadyTest.dll --ListTests
 
       - name: Run NUnit Tests
-        run: dotnet test MatKinhShadyTest.sln --list-tests
+        run:
           dotnet test --filter Name~LogInTest
