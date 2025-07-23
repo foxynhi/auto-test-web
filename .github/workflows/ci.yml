@@ -26,7 +26,7 @@ jobs:
         run: nuget restore MatKinhShadyTest.sln
 
       - name: Build the solution
-        run: dotnet build MatKinhShadyTest.sln --configuration Release --no-restore
+        run: dotnet build MatKinhShadyTest.sln --no-restore
 
       - name: Run NUnit Tests
         run: dotnet test --filter Name~LogInTest
