@@ -32,4 +32,4 @@ jobs:
         run: dotnet vstest MatKinhShadyTest\bin\Release\MatKinhShadyTest.dll --ListTests
 
       - name: Run NUnit Tests
-        run: dotnet test MatKinhShadyTest.sln --no-restore
+        run: dotnet test MatKinhShadyTest.sln --no-restore --configuration Release --no-build --logger "trx" --results-directory ./ReportResults
