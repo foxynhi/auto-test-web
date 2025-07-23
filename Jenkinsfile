@@ -13,7 +13,7 @@ pipeline {
     }
      stage('Info') {
       steps {
-        bat "echo %PATH%"
+        bat "echo %NUGET_EXE%"
       }
     }
     stage('Restore NuGet packages') {
