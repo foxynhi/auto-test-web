@@ -26,7 +26,15 @@ jobs:
         run: nuget restore MatKinhShadyTest.sln
 
       - name: Build the solution
-        run: dotnet build MatKinhShadyTest.sln --no-restore
+        run: dotnet build MatKinhShadyTest.sln --configuration Release --no-restore
+      - name: List DLL contents
+        run: |
+          Get-ChildItem -Recurse .\MatKinhShadyTest\bin\
+        shell: pwsh
+
+      - name: Show test methods in DLL
+        run: dotnet vstest .\MatKinhShadyTest\bin\Release\net6.0\MatKinhShadyTest.dll --ListTests
 
       - name: Run NUnit Tests
-        run: dotnet test --filter Name~LogInTest
+        run: dotnet test MatKinhShadyTest.sln --list-tests
+          dotnet test --filter Name~LogInTest
